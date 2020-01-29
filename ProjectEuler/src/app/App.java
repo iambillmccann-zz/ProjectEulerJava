@@ -1,9 +1,11 @@
 package app;
 
+import eulerlibrary.Problems.ProblemFactory;
+
 public class App {
 
     private static String QUITSTRING = "Q";
-    private static int LASTPROBLEM = 51;
+    private static int LASTPROBLEM = 1;
 
     /**
      * getUserInput is a simple method for reading from the console.
@@ -62,10 +64,18 @@ public class App {
     public static void main(final String[] args) throws Exception {
 
         int problemNumber = 0;
+        ProblemFactory problemFactory = new ProblemFactory();
 
         problemNumber = getUserInput();
 
         while (problemNumber > 0) {
+            String result = problemFactory.GetSolution(problemNumber).Compute();
+
+            System.out.println("\n-----------------------------------------------------------------------");
+            System.out.println("Solution to problem " + problemNumber + " = " + result);
+        //    System.out.println("Execution time was " + Utilities.FormatMilliseconds(totalTime.ElapsedMilliseconds));
+            System.out.println("-----------------------------------------------------------------------");
+            System.out.println();            
             problemNumber = getUserInput();
         }
 
