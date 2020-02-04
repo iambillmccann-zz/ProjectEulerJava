@@ -9,6 +9,6 @@ public class GenericSolution implements IEulerSolution
      */
     public String Compute()
     {
-        return "The requested problem has not been solved";
+        return "The requested problem has not been solved.";
     }
 }

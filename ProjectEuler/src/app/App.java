@@ -1,6 +1,10 @@
 package app;
 
+import java.time.Duration;
+import java.time.Instant;
+
 import eulerlibrary.Problems.ProblemFactory;
+import eulerlibrary.MathLibrary.Utilities;
 
 public class App {
 
@@ -69,11 +73,14 @@ public class App {
         problemNumber = getUserInput();
 
         while (problemNumber > 0) {
+            Instant startTime = Instant.now();
             String result = problemFactory.GetSolution(problemNumber).Compute();
+            Instant stopTime = Instant.now();
+            Long totalTime = Duration.between(startTime, stopTime).toMillis();
 
             System.out.println("\n-----------------------------------------------------------------------");
             System.out.println("Solution to problem " + problemNumber + " = " + result);
-        //    System.out.println("Execution time was " + Utilities.FormatMilliseconds(totalTime.ElapsedMilliseconds));
+            System.out.println("Execution time was " + Utilities.FormatMilliseconds(totalTime));
             System.out.println("-----------------------------------------------------------------------");
             System.out.println();            
             problemNumber = getUserInput();
