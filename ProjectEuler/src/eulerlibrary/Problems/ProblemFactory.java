@@ -14,6 +14,7 @@ public class ProblemFactory
         switch (problemNumber)
         {
             case 1: return new Multiple3or5();
+            case 2: return new EvenFibonacci();
             default: return new GenericSolution();
         }
     }
