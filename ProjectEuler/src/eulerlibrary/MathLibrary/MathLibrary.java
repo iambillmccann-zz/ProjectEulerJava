@@ -1,5 +1,8 @@
 package eulerlibrary.MathLibrary;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MathLibrary
 {
 
@@ -13,6 +16,58 @@ public class MathLibrary
     public static long ArithmeticSeries(long numberOfTerms, long firstTerm, long lastTerm)
     {
         return numberOfTerms * (firstTerm + lastTerm) / 2;
+    }
+
+
+        /// <summary>
+        /// This method returns a collection of factors for a given number
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="primeNumbers"></param>
+        /// <returns></returns>
+        public static List<Long> GetFactors(long number, List<Long> primeNumbers)
+        {
+            List<Long> factors = new ArrayList<Long>();
+
+            for (long primeNumber : primeNumbers)
+            {
+                if (Math.sqrt((double)number) < primeNumber) break;
+                if (IsMultiple(number, primeNumber))
+                {
+                    factors.add(primeNumber);
+                    long nextNumber = number / primeNumber;
+                    if (primeNumbers.contains(nextNumber))
+                        factors.add(nextNumber);
+                    else
+                        factors.addAll(GetFactors(nextNumber, primeNumbers));
+                    break;
+                };
+            }
+
+            return factors;
+        }
+
+    /**
+     * This method returns a collection of prime numbers
+     * @param max Stop checking for primes at this number
+     * @return    List of integers that are prime
+     */
+    public static List<Long> GetPrime(Long max)
+    {
+        List<Long> primeNumbers = new ArrayList<Long>();
+
+        for (long number = 2; number <= max; number++)
+        {
+            boolean isPrime = true;
+            for (Long divisor : primeNumbers)
+            {
+                if (Math.sqrt((double)number) < divisor) break;
+                if (IsMultiple(number, divisor)) isPrime = false;
+            }
+
+            if (isPrime) primeNumbers.add(number);
+        }
+        return primeNumbers;
     }
 
     /**
