@@ -84,4 +84,25 @@ public class MathLibrary
         return false;    
     }
 
+    /**
+     * Reverses the digits of an integer such that 123 becomes 321.
+     * 
+     * @param number   The number to reverse
+     * @return         The new number with reversed digits
+     */
+    public static long ReverseDigits(long number)
+    {
+        long result = 0;
+        long workNumber = number;
+
+        while (workNumber > 0)
+        {
+            long remainder = workNumber % 10;
+            result = (result * 10) + remainder;
+            workNumber /= 10;
+        }
+
+        return result;
+}
+
 }
