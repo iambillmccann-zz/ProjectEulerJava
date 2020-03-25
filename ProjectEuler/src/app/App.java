@@ -9,7 +9,7 @@ import eulerlibrary.MathLibrary.Utilities;
 public class App {
 
     private static String QUITSTRING = "Q";
-    private static int LASTPROBLEM = 5;
+    private static int LASTPROBLEM = 6;
 
     /**
      * getUserInput is a simple method for reading from the console.

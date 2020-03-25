@@ -39,4 +39,28 @@ class MathLibraryTests {
         assertEquals(false, MathLibrary.IsMultiple(23, 2));
         assertEquals(false, MathLibrary.IsMultiple(37, 6));
     }
+
+    @Test
+    public void Square()
+    {
+        assertEquals(25, MathLibrary.Square(5), "Test the square of a number");
+        assertEquals(0, MathLibrary.Square(0), "Test the square of a 0");
+        assertEquals(1, MathLibrary.Square(-1), "Test the square of a negative is positive");
+    }
+
+    @Test
+    public void TestSumNatural()
+    {
+        assertEquals(55, MathLibrary.SumNatural(10), "Test summing a series of natural numbers");
+        assertEquals(0, MathLibrary.SumNatural(0), "Summing nothing should be nothing");
+        assertEquals(0, MathLibrary.SumNatural(-10), "Negative numbers are not natural numbers");
+    }
+
+    @Test
+    public void TestSumNaturalSquares()
+    {
+        assertEquals(385, MathLibrary.SumNaturalSquares(10), "Test summing squared natural numbers");
+        assertEquals(0, MathLibrary.SumNaturalSquares(0), "Zero is not a natural number");
+        assertEquals(0, MathLibrary.SumNaturalSquares(-10), "Negative numbers are not natural");
+    }
 }

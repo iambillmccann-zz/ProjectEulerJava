@@ -103,6 +103,25 @@ public class MathLibrary
         }
 
         return result;
-}
+    }
+
+    public static long Square(long number)
+    {
+        return number * number;
+    }
+
+    public static long SumNatural(long number)
+    {
+        long result = 0;
+        for (long sequence = 1; sequence <= number; sequence++) result += sequence;
+        return result;
+    }
+
+    public static long SumNaturalSquares(long number)
+    {
+        long result = 0;
+        for (long sequence = 1; sequence <= number; sequence++) result += Square(sequence);
+        return result;
+    }
 
 }
