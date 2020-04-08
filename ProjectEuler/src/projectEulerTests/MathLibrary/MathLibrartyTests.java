@@ -91,5 +91,10 @@ class MathLibraryTests {
         assertEquals(5832, MathLibrary.SeriesProduct(numbers));
     }
 
-
+    @Test
+    public void TestSeriesSum()
+    {
+        List<Long> numbers = List.of( 2L, 3L, 5L, 7L );
+        assertEquals(17, MathLibrary.SeriesSum(numbers));
+    }
 }

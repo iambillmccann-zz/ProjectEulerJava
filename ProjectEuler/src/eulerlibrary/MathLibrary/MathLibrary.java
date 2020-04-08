@@ -135,4 +135,11 @@ public class MathLibrary
         return result;
     }
 
+    public static long SeriesSum(List<Long> numbers)
+    {
+        long result = 0;
+        for (long number : numbers) result += number;
+        return result;
+    }
+
 }
