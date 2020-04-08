@@ -2,6 +2,7 @@ package projectEulerTests.MathLibrary;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
+import java.util.List;
 import eulerlibrary.MathLibrary.MathLibrary;
 
 class MathLibraryTests {
@@ -63,4 +64,32 @@ class MathLibraryTests {
         assertEquals(0, MathLibrary.SumNaturalSquares(0), "Zero is not a natural number");
         assertEquals(0, MathLibrary.SumNaturalSquares(-10), "Negative numbers are not natural");
     }
+
+    @Test
+    public void TestGetPrime()
+    {
+        List<Long> actual = MathLibrary.GetPrime(20L);
+        final List<Long> expected = List.of(2L, 3L, 5L, 7L, 11L, 13L, 17L, 19L);
+        assertEquals(expected, actual);
+
+        actual = MathLibrary.GetPrime(23L);
+        assertEquals(9, actual.size());
+
+        actual = MathLibrary.GetPrime(7920L);
+        assertEquals(1000, actual.size());
+        assertEquals(7919, actual.get(actual.size() - 1));
+    }
+
+    @Test
+    public void TestSeriesProduct()
+    {
+        List<Long> numbers = List.of(2L, 3L, 4L, 5L);
+        assertEquals(120, MathLibrary.SeriesProduct(numbers));
+        numbers = List.of(0L, 999L, 33L, -1L, 10L);
+        assertEquals(0, MathLibrary.SeriesProduct(numbers));
+        numbers = List.of( 9L, 9L, 8L, 9L );
+        assertEquals(5832, MathLibrary.SeriesProduct(numbers));
+    }
+
+
 }
