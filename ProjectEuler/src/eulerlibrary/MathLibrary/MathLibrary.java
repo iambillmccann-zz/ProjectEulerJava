@@ -124,4 +124,15 @@ public class MathLibrary
         return result;
     }
 
+    public static long SeriesProduct(List<Long> numbers)
+    {
+        long result = 1;
+        for (long number : numbers)
+        {
+            if (number == 0) return 0;   // A zero will make the product zero
+            result *= number;
+        }
+        return result;
+    }
+
 }

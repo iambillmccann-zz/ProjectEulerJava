@@ -1,7 +1,6 @@
 package eulerlibrary.Problems;
 
 import java.util.List;
-
 import eulerlibrary.MathLibrary.MathLibrary;
 
 public class LargestPrimeFactor implements IEulerSolution {

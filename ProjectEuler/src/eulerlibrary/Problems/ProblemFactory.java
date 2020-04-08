@@ -19,6 +19,10 @@ public class ProblemFactory
             case 4: return new LargestPalindromeProduct();
             case 5: return new SmallestMultiple();
             case 6: return new SumSquareDifference();
+            case 7: return new Prime10001();
+            case 8: return new LargestProductSeries();
+//            case 9: return new PythagoreanTriplet();
+//            case 10: return new SummationPrimes();
             default: return new GenericSolution();
         }
     }
