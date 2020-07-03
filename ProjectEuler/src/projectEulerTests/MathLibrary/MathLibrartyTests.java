@@ -1,6 +1,8 @@
 package projectEulerTests.MathLibrary;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 import java.util.List;
 import eulerlibrary.MathLibrary.MathLibrary;
@@ -96,5 +98,19 @@ class MathLibraryTests {
     {
         List<Long> numbers = List.of( 2L, 3L, 5L, 7L );
         assertEquals(17, MathLibrary.SeriesSum(numbers));
+    }
+
+    @Test
+    public void TestGetDivisors()
+    {
+        List<Long> divisors = MathLibrary.GetDivisors(1);
+        assertTrue( divisors.contains(1L) );
+        assertTrue( divisors.size() == 1 );
+        divisors = MathLibrary.GetDivisors(3);
+        assertTrue( divisors.size() == 2 );
+        assertTrue( divisors.containsAll(List.of(1L, 3L)) );
+        divisors = MathLibrary.GetDivisors(28);
+        assertTrue( divisors.size() == 6 );
+        assertTrue( divisors.containsAll(List.of(1L, 2L, 4L, 7L, 14L, 28L)) );
     }
 }
