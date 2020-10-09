@@ -23,6 +23,9 @@ public class ProblemFactory
             case 8: return new LargestProductSeries();
             case 9: return new PythagoreanTriplet();
             case 10: return new SummationPrimes();
+            case 11: return new LargestProductGrid();
+            case 12: return new HighlyDivisibleTriangle();
+            case 13: return new LargeSum();
             default: return new GenericSolution();
         }
     }

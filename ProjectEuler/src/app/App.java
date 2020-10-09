@@ -9,7 +9,7 @@ import eulerlibrary.MathLibrary.Utilities;
 public class App {
 
     private static String QUITSTRING = "Q";
-    private static int LASTPROBLEM = 10;
+    private static int LASTPROBLEM = 13;
 
     /**
      * getUserInput is a simple method for reading from the console.
@@ -86,7 +86,6 @@ public class App {
             problemNumber = getUserInput();
         }
 
-        System.out.println("Goodbye. Press any key to continue");
-        System.console().readLine();
+        System.out.println("Goodbye.");
     }   
 }
