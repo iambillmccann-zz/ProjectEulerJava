@@ -86,7 +86,6 @@ public class App {
             problemNumber = getUserInput();
         }
 
-        System.out.println("Goodbye. Press any key to continue");
-        System.console().readLine();
+        System.out.println("Goodbye.");
     }   
 }

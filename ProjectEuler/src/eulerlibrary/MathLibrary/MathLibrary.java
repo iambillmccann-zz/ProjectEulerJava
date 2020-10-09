@@ -161,4 +161,11 @@ public class MathLibrary
         return result;
     }
 
+    public static int SeriesSum(int[] numbers)
+    {
+        int result = 0;
+        for (int number : numbers) result += number;
+        return result;
+    }
+
 }

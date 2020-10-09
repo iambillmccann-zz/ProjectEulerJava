@@ -1,5 +1,7 @@
 package eulerlibrary.Problems;
 
+import eulerlibrary.MathLibrary.MathLibrary;
+
 /**
  * Solve problem 13. Large Sum
  * 
@@ -211,9 +213,15 @@ public class LargeSum implements IEulerSolution  {
         "53503534226472524250874054075591789781264330331690"
     };
 
-    @Override
-    public String Compute()
-    {
+    /**
+     * The tansposeMatrix function take an array of numbers in strings and
+     * creates a matrix of its' digits. The resulting array is transposed
+     * such that the rows of the source array become columns in the new matrix
+     * 
+     * @return  a two dimensional array of digits transposed from strings.
+     */
+    private int[][] transposeMatrix () {
+
         int row = 0;
         int col = 0;
         int[][] matrix = new int[givenNumbers[0].length()][givenNumbers.length];
@@ -229,6 +237,39 @@ public class LargeSum implements IEulerSolution  {
             ++col;
         }
 
-        return givenNumbers[0];
+        return matrix;
+    }
+
+    /**
+     * The SumRows method computes the sum of a matrix of digits where each row is computed
+     * like a traditional column of numbers. Yeah, I know that sounds odd.
+     * 
+     * The result is converted into a string.
+     * 
+     * @param matrix    A transposed matrix of digits
+     * @return          A string represent the sum
+     */
+    private String SumRows(int[][] matrix)
+    {
+        String result = "";
+        int carryOver = 0;
+
+        for (int row = matrix.length - 1; row >= 0; row--)
+        {
+            int rowTotal = MathLibrary.SeriesSum(matrix[row]) + carryOver;
+            result = Integer.toString( rowTotal % 10 ) + result;
+            carryOver = Math.floorDiv(rowTotal, 10);
+        }
+        if (carryOver > 0) result = Integer.toString(carryOver) + result;
+
+        return result;
+    }
+
+    @Override
+    public String Compute()
+    {
+        int[][] matrix = transposeMatrix();
+        String result = SumRows(matrix);
+        return result.substring(0, 10);
     }
 }
