@@ -103,25 +103,13 @@ public class MathLibrary
         return false;    
     }
 
-    /**
-     * Reverses the digits of an integer such that 123 becomes 321.
-     * 
-     * @param number   The number to reverse
-     * @return         The new number with reversed digits
-     */
     public static long ReverseDigits(long number)
     {
-        long result = 0;
-        long workNumber = number;
-
-        while (workNumber > 0)
-        {
-            long remainder = workNumber % 10;
-            result = (result * 10) + remainder;
-            workNumber /= 10;
-        }
-
-        return result;
+        // long result = 0;
+        // for( ;number != 0; number=number/10) result = result * 10 + (number % 10);  
+        // return result;
+        StringBuilder temp = new StringBuilder(Long.toString(number));
+        return Long.parseLong(temp.reverse().toString());
     }
 
     public static long Square(long number)
